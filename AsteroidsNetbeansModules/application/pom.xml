@@ -59,12 +59,12 @@
         </dependency>
 
         
-<!--        <dependency>-->
-<!--            <groupId>${project.groupId}</groupId>-->
-<!--            <artifactId>SilentUpdate</artifactId>-->
-<!--            <version>${project.version}</version>-->
-<!--        </dependency>-->
-        
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>SilentUpdate</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!--
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>Player</artifactId>
@@ -89,7 +89,7 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>CommonEnemy</artifactId>
             <version>${project.version}</version>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>Collision</artifactId>
