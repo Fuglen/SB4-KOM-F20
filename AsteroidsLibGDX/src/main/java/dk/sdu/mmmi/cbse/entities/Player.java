@@ -5,6 +5,9 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.MathUtils;
 import dk.sdu.mmmi.cbse.main.Game;
 
+import java.awt.geom.Line2D;
+import java.awt.geom.Point2D;
+
 public class Player extends SpaceObject {
 
     private boolean left;
@@ -14,6 +17,11 @@ public class Player extends SpaceObject {
     private float maxSpeed;
     private float acceleration;
     private float deceleration;
+
+    private boolean hit;
+    private Line2D.Float[] hitLines;
+    private Point2D.Float[] hitLinesVector;
+
 
     public Player() {
 
@@ -93,6 +101,44 @@ public class Player extends SpaceObject {
 
         // screen wrap
         wrap();
+
+    }
+
+    public boolean isHit() { return hit; }
+    public void hit() {
+
+        if(hit) return;
+
+        hit = true;
+        dx = dy = 0;
+        left = right = up = false;
+
+        hitLines = new Line2D.Float[4];
+        for(int i = 0, j = hitLines.length - 1;
+            i < hitLines.length;
+            j = i++) {
+            hitLines[i] = new Line2D.Float(
+                    shapex[i], shapey[i], shapex[j], shapey[j]
+            );
+        }
+
+        hitLinesVector = new Point2D.Float[4];
+        hitLinesVector[0] = new Point2D.Float(
+                MathUtils.cos(radians + 1.5f),
+                MathUtils.sin(radians + 1.5f)
+        );
+        hitLinesVector[1] = new Point2D.Float(
+                MathUtils.cos(radians - 1.5f),
+                MathUtils.sin(radians - 1.5f)
+        );
+        hitLinesVector[2] = new Point2D.Float(
+                MathUtils.cos(radians - 2.8f),
+                MathUtils.sin(radians - 2.8f)
+        );
+        hitLinesVector[3] = new Point2D.Float(
+                MathUtils.cos(radians + 2.8f),
+                MathUtils.sin(radians + 2.8f)
+        );
 
     }
 
