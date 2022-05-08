@@ -72,6 +72,7 @@ public class Enemy extends SpaceObject {
 
     public void update(float dt) {
 
+        Bullet bullet = new Bullet()
         pathTimer += dt;
 
         // move forward

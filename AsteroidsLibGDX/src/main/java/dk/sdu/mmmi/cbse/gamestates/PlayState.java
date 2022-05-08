@@ -24,7 +24,7 @@ public class PlayState extends GameState {
 		sr = new ShapeRenderer();
 		
 		player = new Player();
-		enemy = new Enemy(1, player);
+		enemy = new Enemy(0, player);
 		
 	}
 	
